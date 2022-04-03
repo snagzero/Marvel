@@ -50,8 +50,9 @@ export default {
 <style lang="css">
 
     .card-container{
+        margin-left: 30%;
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: 200px 200px 200px;
         grid-gap: 10px;
     }
 
