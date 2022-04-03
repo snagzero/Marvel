@@ -1,36 +1,52 @@
+<!-- Characters List with persistent vote list -->
 <template lang="html">
     <div>
+        
 
         <div class="card-container">
-
+            <!-- Div for characters cards-->
             <div class="card" v-for="character in characters">
                 <h3>{{character.name}}</h3>
+                <p>{{character.thumbnail}}</p>
                 <router-link :to="{ name: 'character', params: { id: character.id } }">
-
+                    <!-- Button for specific characters-->
                     <button type="button" name="button" class="btn-view">View</button>
 
                 </router-link>
             </div>
         
         </div>
+       
     </div>
 </template>
 
 <script>
-import { public_key, secret_key } from '../marvel';
+import { public_key } from '../marvel';
 import axios from 'axios'
 import { mapState } from 'vuex'
 export default {
     name: 'Characters',
 
+    data(){
 
+        return{
+
+            url: '',
+            size: 'detail.jpg',
+        }
+    },
     mounted(){
 
         this.$store.dispatch('getCharacters')
         console.log(this.characters)
+
+        this.$store.dispatch('getCharacters')
+
+        this.getImage()
         
 
     },
+    
     computed: {
 
         ...mapState({
@@ -38,10 +54,15 @@ export default {
         })
 
     },
+    
 
     methods:{
 
+        getImage: function(){
 
+            this.url = `${this.preUrl}${this.size}`
+
+        }
         
     }
 }
@@ -61,7 +82,6 @@ export default {
         text-align: center;
         background-color: #333;
         min-height: 280px;
-
     }
 
     .card h3{
@@ -80,7 +100,13 @@ export default {
         font-size: 12px;
         font-weight: bold;
         cursor: pointer;
+    }
 
+    .input_group{
+
+        padding: 10px;
+        border-radius: 15px;
+        background-color: transparent;
     }
 
 </style>

@@ -12,11 +12,12 @@ export default createStore({
   getters: {
   },
   mutations: {
+    // @ get characters list from api
     getCharacters(state){
 
       state.characters = []
-
-      axios.get(`http://gateway.marvel.com/v1/public/characters?apikey=${public_key}`)
+     
+      axios.get(`http://gateway.marvel.com/v1/public/characters?apikey=${public_key}&limit=100`)
       .then((result) => {
 
           
@@ -38,7 +39,7 @@ export default createStore({
 
       state.character = []
 
-      axios.get(`http://gateway.marvel.com/v1/public/characters/${id}?apikey=${public_key}`)
+      axios.get(`http://gateway.marvel.com/v1/public/characters/${id}?apikey=${public_key}&limit=1`)
                 .then((result) => {
 
                     console.log(result)

@@ -2,15 +2,28 @@
     <div>
 
         <div class="flex-container">
-
-            <div class="flex" v-for="char in character">
-                <h3>{{char.name}}</h3>
-                <p>{{char.description}}</p>
-            </div>
-
             <div class="flex2">
                 <img :src="url" alt="" class="char-img">
             </div>
+            <div class="flex" v-for="char in character">
+                <h3>{{char.name}}</h3>
+                <p>{{char.description}}</p>
+                
+<!-- character about
+                <p>{{char.id}}</p>
+                <p>{{char.modified}}</p>
+                <p>{{char.resourceURI}}</p>
+                <p>{{char.urls}}</p>
+                <p>{{char.thumbnail}}</p>
+                <p>{{char.comics}}</p>
+                <p>{{char.stories}}</p>
+                <p>{{char.events}}</p>
+                <p>{{char.series}}</p>
+                
+-->
+            </div>
+
+            
 
         </div>
         <router-link to="/">
@@ -33,7 +46,7 @@ export default {
         return{
 
             url: '',
-            size: 'portrait_uncanny.jpg',
+            size: 'detail.jpg',
         }
     },
     mounted(){
@@ -78,13 +91,13 @@ export default {
 .flex{
 
     flex: 50%;
-    text-align: right;
+    text-align: left;
 
 }
 
 .flex2{
 
-    flex: 50%;
+    flex: 1%;
     
 }
 
