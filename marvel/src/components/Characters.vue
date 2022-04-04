@@ -5,7 +5,7 @@
         <div id="sort-bar">
             <select name="sortBy" id="select" v-model="sortBy">
                 <option value="alphabetically">Alphabetically</option>
-                <option value="vote">Vote</option>
+                <option value="by vote">Vote</option>
             </select>
             
             <input type="text" v-model="searchValue" placeholder="Search Character" id="search-input">
