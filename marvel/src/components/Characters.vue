@@ -2,17 +2,28 @@
 <template lang="html">
     <div>
         
+        <div id="sort-bar">
+            <select name="sortBy" id="select" v-model="sortBy">
+                <option value="alphabetically">Alphabetically</option>
+                <option value="vote">Vote</option>
+            </select>
+            
+            <input type="text" v-model="searchValue" placeholder="Search Character" id="search-input">
+        </div>
 
         <div class="card-container">
             <!-- Div for characters cards-->
             <div class="card" v-for="character in characters">
                 <h3>{{character.name}}</h3>
+                <button class="vote" @click="count++">Vote count is: {{ count }}</button>
                 <p>{{character.thumbnail}}</p>
                 <router-link :to="{ name: 'character', params: { id: character.id } }">
                     <!-- Button for specific characters-->
                     <button type="button" name="button" class="btn-view">View</button>
+                    
 
                 </router-link>
+                
             </div>
         
         </div>
@@ -33,6 +44,8 @@ export default {
 
             url: '',
             size: 'detail.jpg',
+            count: 0,
+            search: '',
         }
     },
     mounted(){
@@ -51,8 +64,10 @@ export default {
 
         ...mapState({
             characters: state => state.characters
-        })
+        }),
 
+
+    
     },
     
 
@@ -62,8 +77,8 @@ export default {
 
             this.url = `${this.preUrl}${this.size}`
 
-        }
-        
+        },
+       
     }
 }
 </script>
@@ -107,6 +122,18 @@ export default {
         padding: 10px;
         border-radius: 15px;
         background-color: transparent;
+    }
+
+    .vote{
+
+        padding: 10px;
+        border-radius: 15px;
+        width: 120px;
+        background-color: transparent;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
     }
 
 </style>

@@ -17,7 +17,7 @@ export default createStore({
 
       state.characters = []
      
-      axios.get(`http://gateway.marvel.com/v1/public/characters?apikey=${public_key}&limit=100`)
+      axios.get(`http://gateway.marvel.com/v1/public/characters?apikey=${public_key}&limit=10`)
       .then((result) => {
 
           
