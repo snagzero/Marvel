@@ -1,7 +1,7 @@
 <!-- Characters List with persistent vote list -->
 <template lang="html">
     <div>
-        
+        <!-- barra para search e filtro alfabetico ou por voto baseado no counto do button vote-->
         <div id="sort-bar">
             <select name="sortBy" id="select" v-model="sortBy">
                 <option value="alphabetically">Alphabetically</option>
@@ -12,20 +12,27 @@
         </div>
 
         <div class="card-container">
-            <!-- Div for characters cards-->
+            <!-- Div para os cards dos characters-->
             <div class="card" v-for="character in characters">
                 <h3>{{character.name}}</h3>
+                <!-- botao para voto individual -----????? ainda esta geral -->
                 <button class="vote" @click="count++">Vote count is: {{ count }}</button>
-                <p>{{character.thumbnail}}</p>
-                <router-link :to="{ name: 'character', params: { id: character.id } }">
-                    <!-- Button for specific characters-->
-                    <button type="button" name="button" class="btn-view">View</button>
-                    
+                <!-- call pra thumbnail ??? character.thubnail so pega o texto do path {{character.id}}-->
+                <div class="flex2">
+                <h3>{{character.thumbnail}}</h3>
+                </div>
+                <img :src="url" alt="" class="char-img">
 
+                <!-- button para link de cada personagem-->
+                <router-link :to="{ name: 'character', params: { id: character.id } }">
+                 
+                    <button type="button" name="button" class="btn-view">View</button>
+                
                 </router-link>
+
                 
             </div>
-        
+                
         </div>
        
     </div>
@@ -42,21 +49,15 @@ export default {
 
         return{
 
-            url: '',
-            size: 'detail.jpg',
             count: 0,
             search: '',
+            
         }
     },
     mounted(){
 
         this.$store.dispatch('getCharacters')
-        console.log(this.characters)
-
-        this.$store.dispatch('getCharacters')
-
-        this.getImage()
-        
+        console.log(this.characters)        
 
     },
     
@@ -64,6 +65,7 @@ export default {
 
         ...mapState({
             characters: state => state.characters
+         
         }),
 
 
@@ -73,11 +75,7 @@ export default {
 
     methods:{
 
-        getImage: function(){
-
-            this.url = `${this.preUrl}${this.size}`
-
-        },
+       
        
     }
 }
@@ -95,7 +93,7 @@ export default {
     .card {
 
         text-align: center;
-        background-color: #333;
+        background-color: rgb(133, 10, 10);
         min-height: 280px;
     }
 
@@ -107,7 +105,7 @@ export default {
     .btn-view{
 
         padding: 10px;
-        margin-top: 50px;
+        margin-top: 80px;
         border-radius: 15px;
         width: 120px;
         background-color: transparent;
@@ -134,6 +132,13 @@ export default {
         font-size: 12px;
         font-weight: bold;
         cursor: pointer;
+    }
+
+    .char-img{
+
+    border-radius: 10px;
+    size: 10%;
+
     }
 
 </style>

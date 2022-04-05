@@ -7,7 +7,8 @@ export default createStore({
   state: {
     characters: [],
     character: [],
-    url: []
+    url: [],
+    
   },
   getters: {
   },
@@ -17,7 +18,7 @@ export default createStore({
 
       state.characters = []
      
-      axios.get(`http://gateway.marvel.com/v1/public/characters?apikey=${public_key}&limit=10`)
+      axios.get(`http://gateway.marvel.com/v1/public/characters?apikey=${public_key}&limit=9`)
       .then((result) => {
 
           
@@ -26,6 +27,8 @@ export default createStore({
               console.log(item)
 
               state.characters.push(item)
+
+              
           })
 
       })
@@ -39,7 +42,7 @@ export default createStore({
 
       state.character = []
 
-      axios.get(`http://gateway.marvel.com/v1/public/characters/${id}?apikey=${public_key}&limit=1`)
+      axios.get(`http://gateway.marvel.com/v1/public/characters/${id}?apikey=${public_key}&limit=9`)
                 .then((result) => {
 
                     console.log(result)
