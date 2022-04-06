@@ -1,7 +1,7 @@
 <!-- Characters List with persistent vote list -->
 <template lang="html">
     <div>
-        <!-- barra para search e filtro alfabetico ou por voto baseado no counto do button vote-->
+        <!-- barra para search e filtro alfabetico ou por voto baseado no count do button vote-->
         <div id="sort-bar">
             <select name="sortBy" id="select" v-model="sortBy">
                 <option value="alphabetically">Alphabetically</option>
@@ -17,7 +17,7 @@
                 <h3>{{character.name}}</h3>
                 <!-- botao para voto individual -----????? ainda esta geral -->
                 <button class="vote" @click="count++">Vote count is: {{ count }}</button>
-                <!-- call pra thumbnail ??? character.thubnail so pega o texto do path {{character.id}}-->
+                <!-- call pra thumbnail ??? character.thubnail so pega o texto do path {{character.thumbnail}}-->
                 <div class="flex2">
                 <h3>{{character.thumbnail}}</h3>
                 </div>

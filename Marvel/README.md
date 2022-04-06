@@ -1,4 +1,11 @@
 # marvel
+node.js
+
+## extensions used 
+
+johnsoncodehk.volar
+
+octref.vetur
 
 ## Project setup
 ```

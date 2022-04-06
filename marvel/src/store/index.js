@@ -37,7 +37,7 @@ export default createStore({
           console.log(error)
       })
     },
-    
+    // @ get para img na page characters
     getCharacter(state, id){
 
       state.character = []

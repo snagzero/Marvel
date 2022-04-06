@@ -1,10 +1,11 @@
 <template lang="html">
     <div>
-
+        <!-- div para imagen-->
         <div class="flex-container">
             <div class="flex2">
                 <img :src="url" alt="" class="char-img">
             </div>
+            <!--div para nome description-->
             <div class="flex" v-for="char in character">
                 <h3>{{char.name}}</h3>
                 <p>{{char.description}}</p>
@@ -26,6 +27,7 @@
             
 
         </div>
+        <!-- botao para back home-->
         <router-link to="/">
             <button type="button" name="button" class="btn-back">Back</button>
 

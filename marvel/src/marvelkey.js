@@ -2,7 +2,8 @@ const privateKey = "f7d753bc12f7febd2eeef36d696653698639f0b8";
 const publicKey = "2051c49ae1e4450974e8223d31101b24";
 const maxCharacters = 1500;
 
-
+// @ tentei copiar um call da api para hash mas nao consigui rodar....
+// @ esse *.js esta sem funcao
 
 function createHash(timeStamp) {
 
